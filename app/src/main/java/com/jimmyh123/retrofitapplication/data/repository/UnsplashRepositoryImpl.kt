@@ -11,7 +11,7 @@ class UnsplashRepositoryImpl @Inject constructor(
 ) : UnsplashRepository {
 
     override suspend fun getPhotos(): List<UnsplashDto> {
-        return api.getPhotos()
+        return api.getPhotos(1,100)
     }
 
     override suspend fun getPhotoById(unsplashId: String): UnsplashDetailDto {
