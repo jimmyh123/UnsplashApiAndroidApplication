@@ -16,7 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.jimmyh123.retrofitapplication.presentation.Screen
+import com.jimmyh123.retrofitapplication.presentation.bottom_nav.BottomTabScreen
+//import com.jimmyh123.retrofitapplication.presentation.Screen
 import com.jimmyh123.retrofitapplication.presentation.components.PhotoListItem
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -43,7 +44,7 @@ fun PhotoListScreen(
                 val currentPhotoId = state.photos[photo].id
                 PhotoListItem(
                     photo = state.photos[photo],
-                    onItemClick = { navController.navigate(Screen.PhotoDetailScreen.route + "/${currentPhotoId}")})
+                    onItemClick = { navController.navigate(BottomTabScreen.PhotoDetailScreen.route + "/${currentPhotoId}")})
             }
         }
 

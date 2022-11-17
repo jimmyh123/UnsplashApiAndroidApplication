@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RetrofitApplication</string>
+    <string name="section_home">Home</string>
+    <string name="section_search">Search</string>
+    <string name="section_favourites">Favourites</string>
+    <string name="section_photo_list">Photo List</string>
+    <string name="section_photo_detail">Photo Detail</string>
+</resources>
