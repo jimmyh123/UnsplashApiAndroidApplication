@@ -28,6 +28,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.pager.*
 import com.jimmyh123.retrofitapplication.R
+import com.jimmyh123.retrofitapplication.presentation.BottomTabScreen
+import com.jimmyh123.retrofitapplication.presentation.TabItem
 import com.jimmyh123.retrofitapplication.presentation.photo_detail.PhotoDetailScreen
 import com.jimmyh123.retrofitapplication.presentation.photo_list.PhotoListScreen
 import kotlinx.coroutines.launch
@@ -221,20 +223,6 @@ private fun navigateBackToStart(
     navController.popBackStack(BottomTabScreen.Home.route,inclusive = false)
 }
 
-// define bottom bar navigation
-sealed class BottomTabScreen(
-    val route: String,
-    @StringRes val resourceId: Int,
-    val icon: ImageVector,
-    val badgeCount: Int = 0
-) {
-    object Home : BottomTabScreen("Home", R.string.section_home,Icons.Default.Home,0)
-    object Search : BottomTabScreen("Search", R.string.section_search, Icons.Default.Search, 0)
-    object Favourites : BottomTabScreen("Favourites", R.string.section_favourites, Icons.Default.Favorite,12)
-    object PhotoListScreen: BottomTabScreen("PhotoListScreen", R.string.section_photo_list, Icons.Default.Home)
-    object PhotoDetailScreen: BottomTabScreen("PhotoDetailScreen", R.string.section_photo_detail, Icons.Default.Home)
-}
-
 val bottomBarItems = listOf(
     BottomTabScreen.PhotoListScreen,
     BottomTabScreen.Search,
@@ -257,10 +245,3 @@ enum class ScreenNavigationLocations(){
     Favourites
 }
 
-// define tab navigation
-typealias ComposableFun = @Composable () -> Unit
-sealed class TabItem(val icon: ImageVector, var title: String, var screen: ComposableFun) {
-    object TabScreenOne : TabItem(Icons.Default.Email, "Tab One", { TabScreenOne() })
-    object TabScreenTwo : TabItem(Icons.Default.Edit, "Tab Two", { TabScreenTwo() })
-    object TabScreenThree : TabItem(Icons.Default.Call, "Tab Three", { TabScreenThree() })
-}
